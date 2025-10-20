@@ -22,7 +22,7 @@ version = providers.gradleProperty("pluginVersion").get()
 
 // Set the JVM language level used to build the project.
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 // Configure project's dependencies
@@ -168,4 +168,8 @@ intellijPlatformTesting {
             }
         }
     }
+}
+
+configurations.all {
+    exclude(group = "org.slf4j", module = "slf4j-api")
 }

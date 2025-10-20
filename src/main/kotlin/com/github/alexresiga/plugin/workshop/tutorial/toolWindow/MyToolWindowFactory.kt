@@ -9,7 +9,7 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
 import com.github.alexresiga.plugin.workshop.tutorial.MyBundle
-import com.github.alexresiga.plugin.workshop.tutorial.services.MyProjectService
+import com.github.alexresiga.plugin.workshop.tutorial.helpers.services.MyProjectService
 import javax.swing.JButton
 
 
