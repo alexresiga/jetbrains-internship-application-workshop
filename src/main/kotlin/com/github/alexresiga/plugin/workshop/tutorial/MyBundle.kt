@@ -1,4 +1,4 @@
-package com.github.alexresiga.jetbrainsinternshipapplicationworkshop
+package com.github.alexresiga.plugin.workshop.tutorial
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

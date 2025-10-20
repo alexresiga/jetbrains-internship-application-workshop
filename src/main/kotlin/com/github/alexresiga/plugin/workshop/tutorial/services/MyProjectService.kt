@@ -1,9 +1,9 @@
-package com.github.alexresiga.jetbrainsinternshipapplicationworkshop.services
+package com.github.alexresiga.plugin.workshop.tutorial.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.alexresiga.jetbrainsinternshipapplicationworkshop.MyBundle
+import com.github.alexresiga.plugin.workshop.tutorial.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

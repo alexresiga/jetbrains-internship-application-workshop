@@ -1,4 +1,4 @@
-package com.github.alexresiga.jetbrainsinternshipapplicationworkshop.toolWindow
+package com.github.alexresiga.plugin.workshop.tutorial.toolWindow
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.diagnostic.thisLogger
@@ -8,8 +8,8 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
-import com.github.alexresiga.jetbrainsinternshipapplicationworkshop.MyBundle
-import com.github.alexresiga.jetbrainsinternshipapplicationworkshop.services.MyProjectService
+import com.github.alexresiga.plugin.workshop.tutorial.MyBundle
+import com.github.alexresiga.plugin.workshop.tutorial.services.MyProjectService
 import javax.swing.JButton
 
 
