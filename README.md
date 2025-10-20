@@ -1,49 +1,36 @@
 # jetbrains-internship-application-workshop
 
-![Build](https://github.com/alexresiga/jetbrains-internship-application-workshop/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties) and [pluginName](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
-- [ ] Configure the [CODECOV_TOKEN](https://docs.codecov.com/docs/quick-start) secret for automated test coverage reports on PRs
-
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections. 
+IntelliJ IDEA plugin that allows users to select Java code blocks, view their equivalent Kotlin code, and analyze the difference in token count between the two versions.
 <!-- Plugin description end -->
 
-## Installation
+## Requirements
 
-- Using the IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "jetbrains-internship-application-workshop"</kbd> >
-  <kbd>Install</kbd>
-  
-- Using JetBrains Marketplace:
+The plugin requires Java 17 and IntelliJ IDEA 2025.1 or higher to work.
 
-  Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.
+The plugin requires an OpenAI API key. You need to create a `.env` file inside of `src/main/resources/`. You need to set `OPENAI_API_KEY=<your-key>` in the `src/main/resources/.env` file.
 
-  You can also download the [latest release](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID/versions) from JetBrains Marketplace and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## Services
+There are helper methods to work with OpenAI API. Feel free to modify them as you find fit.
 
-- Manually:
+- [HttpClientService](src/main/kotlin/com/github/alexresiga/plugin/workshop/tutorial/helpers/services/HttpClientService.kt): basic http client service
+- [RequestProvider](src/main/kotlin/com/github/alexresiga/plugin/workshop/tutorial/helpers/llm/RequestProvider.kt): provides a request to OpenAI API
+- [OpenAIRequest](src/main/kotlin/com/github/alexresiga/plugin/workshop/tutorial/helpers/llm/OpenAIRequest.kt): OpenAI API request model
+- [OpenAIResponse](src/main/kotlin/com/github/alexresiga/plugin/workshop/tutorial/helpers/llm/OpenAIResponse.kt): OpenAI API response model
 
-  Download the [latest release](https://github.com/alexresiga/jetbrains-internship-application-workshop/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## Running and Building
 
+Available `Run configurations` can be found in `Gradle` → `Run Configurations`:
+
+- Most useful one:`Run Plugin`:
+  Runs [`:runIde`](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-runide) task. This will open a running IntelliJ IDEA with the plugin installed. Use
+  the *Debug* icon for plugin debugging.
+- `Build Plugin`:
+  Runs [`:buildPlugin`](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-buildplugin)
+  task. Build the plugin and saves `.zip`
+  archive with
+  it in `build/distributions` folder.
+- `Run Tests`: Runs [`:test`](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) task.
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
