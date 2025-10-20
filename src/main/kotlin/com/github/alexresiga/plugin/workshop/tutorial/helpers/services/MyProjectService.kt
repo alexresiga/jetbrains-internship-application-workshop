@@ -1,4 +1,4 @@
-package com.github.alexresiga.plugin.workshop.tutorial.services
+package com.github.alexresiga.plugin.workshop.tutorial.helpers.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
