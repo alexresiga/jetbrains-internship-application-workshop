@@ -17,5 +17,9 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.alexresiga.plugin.workshop.tutorial.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
         <postStartupActivity implementation="com.github.alexresiga.plugin.workshop.tutorial.startup.MyProjectActivity" />
+<!--        <intentionAction>-->
+<!--            <language></language>-->
+<!--            <className/>-->
+<!--        </intentionAction>-->
     </extensions>
 </idea-plugin>
